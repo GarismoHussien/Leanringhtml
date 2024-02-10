@@ -1,3 +1,5 @@
+https://www.w3schools.com/html/html_entities.asp   HTML Entities
+
 https://www.tutorialspoint.com/html/html_tutorial.pdf
 HTML
 i
