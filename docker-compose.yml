@@ -1,0 +1,32 @@
+version: '3'
+services:
+  n8n:
+    image: n8nio/n8n
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_PORT=5678
+      - NODE_ENV=production
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=postgresdb
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_USER=username
+      - DB_POSTGRESDB_PASSWORD=password
+      - DB_POSTGRESDB_DATABASE=databasename
+    volumes:
+      - ./tmp:/tmp
+      - ./n8n:/home/node/.n8n
+    depends_on:
+      - postgresdb
+
+  postgresdb:
+    image: postgres
+    environment:
+      - POSTGRES_USER=username
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=databasename
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
