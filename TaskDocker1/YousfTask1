@@ -1,0 +1,80 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "c0289efe-051d-4928-ae8f-515123218b27",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        460,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "dateTime": [
+            {
+              "value1": "2024-03-04T22:00:00.000Z",
+              "value2": "2024-03-19T22:00:00.000Z"
+            }
+          ]
+        },
+        "combineOperation": "any"
+      },
+      "id": "e6da13fc-48bb-4b27-a6e3-1c21fb2fbc81",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        680,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes"
+            },
+            {},
+            {}
+          ]
+        }
+      },
+      "id": "250b6673-54f9-40d1-af82-3b1ddc027599",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        900,
+        300
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "aec5bcd3-d217-4ab2-9114-e360b0e045d8",
+  "id": "1",
+  "meta": {
+    "instanceId": "8c7cb6533f64631fe9f5e67a5e22d75929cc95b44c90ee0b8808eb893934634f"
+  },
+  "tags": []
+}
